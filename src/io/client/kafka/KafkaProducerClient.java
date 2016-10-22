@@ -67,7 +67,7 @@ public class KafkaProducerClient<T>{
 		String response = (String)"null";
 		try {
 			response =  (String) ("Response = " +threadFuture.get().toString());;
-			log.info(response);
+			log.info("Wrote to topic:"+threadFuture.get().topic()+";  partition:"+threadFuture.get().partition());
 		} catch (Exception e) {
 			log.error(e,e);
 		}
