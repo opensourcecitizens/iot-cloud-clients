@@ -4,7 +4,6 @@ import com.google.common.io.Resources;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import kafka.message.Message;
 
 
 import org.apache.log4j.Logger;
