@@ -17,7 +17,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 import com.neustar.io.net.forward.ForwarderIfc;
 
-import io.parser.avro.phoenix.AvroToPhoenixMap;
+import io.parser.avro.jdbc.AvroPreparedStatementMapper;
 
 public class PhoenixForwarder implements ForwarderIfc {
 
@@ -105,13 +105,14 @@ public class PhoenixForwarder implements ForwarderIfc {
 		prepStmt = getConn().prepareStatement("UPSERT INTO "+tablename+" ( "+Arrays.toString(keyset.toArray()).replace("[", "").replace("]", "")+",CREATED_TIME, RAW_JSON) "
 				+ "VALUES("+Arrays.toString(qm).replace("[", "").replace("]", "")+", ? ,?)");
 		
-		AvroToPhoenixMap sqlMapping = new AvroToPhoenixMap();
+		AvroPreparedStatementMapper sqlMapping = new AvroPreparedStatementMapper();
 		
 		sqlMapping.translate(prepStmt, map, schema);
 		
 		prepStmt.setTime(datasize+1, new Time(System.currentTimeMillis()));
 		prepStmt.setString(datasize+2, rawjson);
 		log.debug("SQL = "+prepStmt.toString());
+		System.out.println("SQL = "+prepStmt.toString());
 		int res = prepStmt.executeUpdate();
 		log.debug("Execute update result = "+res);
 		

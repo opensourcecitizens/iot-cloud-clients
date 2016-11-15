@@ -124,9 +124,9 @@
         </dependency>
         
         <dependency>
-        	<groupId>com.neustar.iot.serialization</groupId>
+			<groupId>com.neustar.iot.serialization</groupId>
 			<artifactId>iot-serialization</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
         </dependency>
   
 		<dependency>
