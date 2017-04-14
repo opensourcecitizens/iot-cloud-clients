@@ -12,7 +12,8 @@ import java.util.Set;
 import org.apache.avro.Schema;
 
 import org.apache.log4j.Logger;
-import org.apache.phoenix.jdbc.PhoenixDriver;
+import org.apache.phoenix.queryserver.client.Driver;
+//import org.apache.phoenix.jdbc.PhoenixDriver;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.neustar.io.net.forward.ForwarderIfc;
@@ -61,10 +62,10 @@ public class PhoenixForwarder implements ForwarderIfc {
 	}
 
 
-	private Connection getConn() throws SQLException, ClassNotFoundException{
+	public Connection getConn() throws SQLException, ClassNotFoundException{
 		if(conn==null || conn.isClosed()){
 			Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
-			DriverManager.registerDriver(new PhoenixDriver());
+			DriverManager.registerDriver(new Driver());
 			conn = DriverManager.getConnection(jdbcUrl);
 			conn.setAutoCommit(true);
 		}
