@@ -133,13 +133,23 @@
 			<groupId>org.eclipse.paho</groupId>
 			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
 			<version>1.0.2</version>
-		</dependency>
+		</dependency>		
 		
-		<dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.phoenix/phoenix-queryserver-client -->
+<dependency>
+    <groupId>org.apache.phoenix</groupId>
+    <artifactId>phoenix-queryserver-client</artifactId>
+    <version>4.10.0-HBase-0.98</version>
+</dependency>
+
+
+
+		<!-- <dependency>
 			<groupId>internal.phoenix</groupId>
 			<artifactId>phoenix-client</artifactId>
 			<version>4.4-iotas</version>
 		</dependency>
+		-->
 
 	</dependencies>
 </project>
